@@ -27,7 +27,10 @@ class _ListaState extends State<Lista> {
         title: Text('Contatos cadastrados', style: TextStyle(color: Colors.white, fontFamily: 'New Amsterdam', fontSize: 30),), 
         centerTitle: true,
       ),
-      body: ListView.separated(
+      
+      body: Center(child: Column(children: [
+        ListView.separated(
+          shrinkWrap: true,
         separatorBuilder: (context, index)=>Divider(thickness: 3,),
         itemBuilder: (BuildContext context, int index) 
         {
@@ -61,6 +64,22 @@ class _ListaState extends State<Lista> {
         }, 
         itemCount: widget.listaC.length,
       ),
+      SizedBox(height: 20,),
+      ElevatedButton(
+        onPressed: (){Navigator.pop(context);}, 
+        child: Text('Voltar', style: TextStyle(fontFamily: 'New Amsterdam', color: Colors.white, fontSize: 25),),
+        style: ElevatedButton.styleFrom(
+          padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 40),
+          backgroundColor: Color.fromARGB(255, 140, 38, 166),
+          textStyle: TextStyle(fontSize: 18),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+        ),)
+      ],
+      ),
+      ),
+
     );
   }
   void _showDeleteConfirmationDialog(BuildContext context, int index) {
